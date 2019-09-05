@@ -9,9 +9,14 @@ class AdminUserController extends Controller
 {
     //
 
-    public function index()
+  public function index()
+  {
+    return view('admin.index');
+  }
+
+    public function indexUser()
     {
-      return view('admin.user');
+      return view('admin.user.index');
     }
 
     public function all()
@@ -32,6 +37,7 @@ class AdminUserController extends Controller
         'ubicacion' => 'required|string',
         'email' => 'required|string|max:255|email|unique:users',
         'password' => 'required|string|max:255',
+        'rol_id' => 'required'
       ]);
 
       $user = User::create([
@@ -44,6 +50,7 @@ class AdminUserController extends Controller
         'ubicacion' => $request->ubicacion,
         'email' => $request->email,
         'password' => $request->password,
+        'rol_id' => $request->rol_id
       ]);
 
       return redirect()->route('admin.user.edit', ['id' => $user->id])->with('status', 'Se ha guardado el usuario correctamente');
@@ -75,6 +82,7 @@ class AdminUserController extends Controller
         if(!empty($request->password)){
         $user->password = $request->password;
         }
+        $user->rol_id = $request->rol_id;
         $user->save();
 
       return redirect()->route('admin.user.edit', ['id' => $user->id])->with('status', 'Se ha guardado el usuario correctamente');

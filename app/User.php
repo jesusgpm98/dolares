@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nombre', 'email', 'telefono','ci', 'fotoCI','estado', 'pais', 'ubicacion','apellido','password',
+        'nombre', 'email', 'telefono','ci', 'fotoCI','estado', 'pais', 'ubicacion','apellido','password', 'rol_id'
     ];
 
     /**
@@ -79,5 +79,5 @@ class User extends Authenticatable
     public function ratingReceptor(){
       return $this->hasMany('App\Rating', 'receptor_id');
     }
-    
+
 }

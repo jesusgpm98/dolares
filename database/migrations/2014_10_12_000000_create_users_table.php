@@ -38,8 +38,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->unsignedBigInteger('role_id');
-          $table->foreign('roles_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('rol_id');
+          $table->foreign('rol_id')->references('id')->on('roles');
         });
     }
 
@@ -50,8 +50,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+
         Schema::dropIfExists('users');
+        Schema::dropIfExists('roles');
 
     }
 }
