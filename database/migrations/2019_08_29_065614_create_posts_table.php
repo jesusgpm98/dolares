@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->mediumText('descripcion');
             $table->float('tasa',12,2);
             $table->integer('premium');
+            $table->boolean('activo')->default(true);
             $table->float('min', 16,2);
             $table->float('max', 20,2);
             $table->dateTime('finalPremiun')->nullable();

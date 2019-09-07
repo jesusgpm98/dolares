@@ -12,48 +12,44 @@
                 <div class="bg-primary-lighter collapse navbar-collapse remove-padding" id="sub-header-nav">
                     <div class="content-mini content-boxed">
                         <ul class="nav nav-pills nav-sub-header push">
-                            <li class="active">
+                            <li class="">
                                 <a href="{{ route('home') }}">
                                     <i class="fa fa-dashboard push-5-r"></i>Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="#" >
-                                    <i class="fa fa-briefcase push-5-r"></i>Categorias
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" @click="menu=2">
-                                    <i class="fa fa-users push-5-r"></i>Precios
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" @click="menu=3">
-                                    <i class="fa fa-paypal push-5-r"></i>Sales
+                                <a href="{{ route('categorias') }}" >
+                                    <i class="fa fa-bars push-5-r"></i>Categorias
                                 </a>
                             </li>
                             <li>
                                 <a href="#" >
-                                    <i class="fa fa-cog push-5-r"></i>Settings
+                                    <i class="fa fa-support push-5-r"></i>Tickets
                                 </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-coffee push-5-r"></i>More <span class="caret"></span>
+                            <li>
+                                <a href="#" >
+                                    <i class="fa fa-weixin push-5-r"></i>Chats
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="javascript:void(0)">Payment</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)">Privacy</a>
-                                    </li>
-                                    <li role="separator" class="divider"></li>
-                                    <li>
-                                        <a href="javascript:void(0)">Shop</a>
-                                    </li>
-                                </ul>
                             </li>
+                            <li>
+                                <a href="#" >
+                                    <i class="fa fa-edit push-5-r"></i>Settings
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" >
+                                    <i class="fa fa-newspaper-o push-5-r"></i>Noticias
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" >
+                                    <i class="fa fa-shopping-cart push-5-r"></i>Comprador
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>

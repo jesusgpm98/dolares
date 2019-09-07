@@ -233,6 +233,7 @@
           <!-- END Header -->
           @include('partials.navBar')
       @endauth
+      <main id="main-container">
   @yield('content')
       <!-- END Terms Modal -->
 @auth

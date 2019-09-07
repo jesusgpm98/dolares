@@ -20,17 +20,14 @@
   <script src="{{ asset('') }}assets/js/core/js.cookie.min.js"></script>
   <script src="{{ asset('') }}assets/js/app.js"></script>
 
-  <!-- Page Plugins -->
-  <script src="{{ asset('') }}assets/js/plugins/chartjs/Chart.min.js"></script>
-
-  <!-- Page JS Code -->
-  <script src="{{ asset('') }}assets/js/pages/base_pages_dashboard_v2.js"></script>
   <script>
-      jQuery(function () {
-          // Init page helpers (CountTo plugin)
-          App.initHelpers('appear-countTo');
-      });
-  </script>
+
+
+        $(function () {
+      $("li a:contains('Dashboard')").parent().addClass('active');
+  });
+
+    </script>
 @endsection
 @section('content')
   <!-- Page Content -->

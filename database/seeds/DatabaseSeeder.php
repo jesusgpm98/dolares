@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         $roles = Rol::create(['nombre' => 'Administrador', 'descripcion' => 'Administrador del sistema']);
         $roles = Rol::create(['nombre' => 'Usuario', 'descripcion' => 'Usuario del sistema']);
+        $roles = Rol::create(['nombre' => 'Comprador', 'descripcion' => 'Comprador de divisas']);
+        $roles = Rol::create(['nombre' => 'Vendedor', 'descripcion' => 'Vendedor de divisas']);
 
         $user = New User();
         $user->nombre = 'admin';
