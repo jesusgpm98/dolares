@@ -73,6 +73,7 @@ Route::post('/admin/usuario/{id}', 'AdminUserController@update')->name('admin.us
 
 // admin Categoria
 Route::get('/admin/categoria', 'AdminCategoriaController@index')->name('admin.categoria');
+Route::get('/admin/categoria/create', 'AdminCategoriaController@create')->name('admin.categoria.create');
 Route::get('/admin/categoria/{id}', 'AdminCategoriaController@edit')->name('admin.categoria.edit');
 Route::post('/admin/categoria', 'AdminCategoriaController@store')->name('admin.categoria.store');
 Route::post('/admin/categoria/{id}', 'AdminCategoriaController@update')->name('admin.categoria.update');

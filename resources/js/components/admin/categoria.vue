@@ -435,7 +435,7 @@
                         </td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Edit Client"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-xs btn-default"  type="button" data-toggle="tooltip" title="Edit Client"><i class="fa fa-pencil"></i></button>
                                 <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"><i class="fa fa-times"></i></button>
                             </div>
                         </td>
@@ -454,6 +454,11 @@
         },
         created(){
 
+        },
+        methods:{
+          casa(){
+            console.log('casa');
+          }
         }
     }
 </script>

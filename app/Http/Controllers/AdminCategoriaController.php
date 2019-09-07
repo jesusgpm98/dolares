@@ -58,4 +58,9 @@ class AdminCategoriaController extends Controller
 
       return redirect()->route('admin.categoria.edit', ['id' => $categoria->id])->with('status', 'Se ha guardado correctamente');
     }
+
+    public function create()
+    {
+      return view('admin.categoria.agregar');
+    }
 }
