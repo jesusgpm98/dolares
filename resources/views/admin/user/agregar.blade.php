@@ -4,13 +4,13 @@
     <div class="row items-push">
       <div class="col-sm-7">
         <h1 class="page-heading">
-          Modificar Usuario <small>users</small>
+          Crear Usuario <small>users</small>
         </h1>
       </div>
       <div class="col-sm-5 text-right hidden-xs">
         <ol class="breadcrumb push-10-t">
           <li>Admin</li>
-          <li><a class="link-effect" href="#">Modificar Usuario</a></li>
+          <li><a class="link-effect" href="#">Crear Usuario</a></li>
         </ol>
       </div>
     </div>
@@ -27,10 +27,10 @@
       <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
     </li>
   </ul> --}}
-  <h3 class="block-title">Modificar usuario</h3>
+  <h3 class="block-title">Crear usuario</h3>
 </div>
 <div class="block-content">
-  <form class="form-horizontal" action="{{ route('admin.user.update', ['id' => $user->id]) }}" method="post">
+  <form class="form-horizontal" action="{{ route('admin.user.store') }}" method="post">
     @csrf
 
     <div class="row">
@@ -38,7 +38,7 @@
         <div class="form-group">
           <div class="col-xs-6">
             <label for="nombre">Nombre</label>
-            <input class="form-control input-lg @error('nombre') is-invalid @enderror" type="text" id="nombre" value="{{ $user->nombre }}" name="nombre" placeholder="Enter your firstname.." autofocus >
+            <input class="form-control input-lg @error('nombre') is-invalid @enderror" type="text" id="nombre" value="{{ old('nombre') }}" name="nombre" placeholder="Enter your firstname.." autofocus >
               @error('nombre')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
 
             <div class="col-xs-6">
               <label for="apellido">Apellido</label>
-              <input class="form-control input-lg @error('apellido') is-invalid @enderror" type="text" id="apellido" value="{{ $user->apellido }}" name="apellido" placeholder="Enter your lastname..">
+              <input class="form-control input-lg @error('apellido') is-invalid @enderror" type="text" id="apellido" value="{{ old('apellido') }}" name="apellido" placeholder="Enter your lastname..">
                 @error('apellido')
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -62,7 +62,7 @@
             <div class="form-group">
               <div class="col-xs-12">
                 <label for="ci">C.I</label>
-                <input class="form-control input-lg @error('ci') is-invalid @enderror" type="text" id="ci" name="ci" value="{{ $user->ci }}" placeholder="Enter your ID card..">
+                <input class="form-control input-lg @error('ci') is-invalid @enderror" type="text" id="ci" name="ci" value="{{ old('ci') }}" placeholder="Enter your ID card..">
                   @error('ci')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -78,7 +78,7 @@
               <div class="form-group">
                 <div class="col-xs-6">
                   <label for="pais">País</label>
-                  <input class="form-control input-lg @error('pais') is-invalid @enderror" type="text" id="pais" value="{{ $user->pais }}" name="pais" placeholder="Enter your country..">
+                  <input class="form-control input-lg @error('pais') is-invalid @enderror" type="text" id="pais" value="{{ old('pais') }}" name="pais" placeholder="Enter your country..">
                     @error('pais')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -88,7 +88,7 @@
 
                   <div class="col-xs-6">
                     <label for="estado">Estado</label>
-                    <input class="form-control input-lg @error('estado') is-invalid @enderror" type="text" id="estado" value="{{ $user->estado }}" name="estado" placeholder="Enter your state..">
+                    <input class="form-control input-lg @error('estado') is-invalid @enderror" type="text" id="estado" value="{{ old('estado') }}" name="estado" placeholder="Enter your state..">
                       @error('estado')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -102,7 +102,7 @@
                   <div class="form-group">
                     <div class="col-xs-12">
                       <label for="telefono">Telefono</label>
-                      <input class="form-control input-lg @error('telefono') is-invalid @enderror" type="text" id="telefono" value="{{ $user->telefono }}" name="telefono" placeholder="Enter your phone..">
+                      <input class="form-control input-lg @error('telefono') is-invalid @enderror" type="text" id="telefono" value="{{ old('telefono') }}" name="telefono" placeholder="Enter your phone..">
                         @error('telefono')
                           <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -118,7 +118,7 @@
                     <div class="form-group">
                       <div class="col-xs-6">
                         <label for="ubicacion">Ubicacion</label>
-                        <input class="form-control input-lg @error('ubicacion') is-invalid @enderror" type="text" id="ubicacion" value="{{ $user->ubicacion }}" name="ubicacion" placeholder="Enter your location..">
+                        <input class="form-control input-lg @error('ubicacion') is-invalid @enderror" type="text" id="ubicacion" value="{{ old('ubicacion') }}" name="ubicacion" placeholder="Enter your location..">
                           @error('ubicacion')
                             <span class="invalid-feedback" role="alert">
                               <strong>{{ $message }}</strong>
@@ -130,9 +130,7 @@
                           <label for="rol">Rol</label>
                           <select class="form-control input-lg" id="rol" name="rol_id">
                             @foreach ($rol as $row)
-                              <option value="{{ $row->id }}" {{ ($row->id == $id_rol) ? 'selected' : '' }}>
-                                {{ $row->nombre }}
-                              </option>
+                              <option value="{{ $row->id }}">{{ $row->nombre }}</option>
                             @endforeach
                           </select>
                         </div>
@@ -146,7 +144,7 @@
                       <div class="form-group">
                         <div class="col-xs-6">
                           <label for="email">Correo</label>
-                          <input class="form-control input-lg @error('email') is-invalid @enderror" type="email" id="email" value="{{ $user->email }}" name="email" placeholder="Enter your email..">
+                          <input class="form-control input-lg @error('email') is-invalid @enderror" type="email" id="email" value="{{ old('email') }}" name="email" placeholder="Enter your email..">
                             @error('email')
                               <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -170,7 +168,7 @@
 
                       <div class="form-group">
                         <div class="col-xs-12">
-                          <button class="btn btn-primary" type="submit"><i class="fa fa-edit push-5-r"></i> Crear usuario</button>
+                          <button class="btn btn-warning" type="submit"><i class="fa fa-check push-5-r"></i> Crear usuario</button>
                         </div>
                       </div>
 
@@ -189,5 +187,5 @@
               $(document).ready( function () {
                 $('#myTable').DataTable();
               });
-              </script>
+            </script>
             @endpush

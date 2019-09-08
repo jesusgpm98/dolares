@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categoria extends Model
 {
+
+  protected $fillable = ['nombre', 'descripcion'];
+
     //Relaciones con Post
 
     public function post(){

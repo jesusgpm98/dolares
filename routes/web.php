@@ -67,7 +67,10 @@ Route::get('/admin', 'AdminUserController@index')->name('admin');
 
 // admin User
 Route::get('/admin/usuario', 'AdminUserController@indexUser')->name('admin.user');
+Route::get('/admin/usuario/create', 'AdminUserController@create')->name('admin.user.create');
 Route::get('/admin/usuario/{id}', 'AdminUserController@edit')->name('admin.user.edit');
+
+
 Route::post('/admin/usuario', 'AdminUserController@store')->name('admin.user.store');
 Route::post('/admin/usuario/{id}', 'AdminUserController@update')->name('admin.user.update');
 
@@ -75,12 +78,15 @@ Route::post('/admin/usuario/{id}', 'AdminUserController@update')->name('admin.us
 Route::get('/admin/categoria', 'AdminCategoriaController@index')->name('admin.categoria');
 Route::get('/admin/categoria/create', 'AdminCategoriaController@create')->name('admin.categoria.create');
 Route::get('/admin/categoria/{id}', 'AdminCategoriaController@edit')->name('admin.categoria.edit');
+
 Route::post('/admin/categoria', 'AdminCategoriaController@store')->name('admin.categoria.store');
 Route::post('/admin/categoria/{id}', 'AdminCategoriaController@update')->name('admin.categoria.update');
 
 // admin noticia
 Route::get('/admin/noticia', 'AdminNoticiaController@index')->name('admin.noticia');
+Route::get('/admin/noticia/create', 'AdminNoticiaController@create')->name('admin.noticia.create');
 Route::get('/admin/noticia/{id}', 'AdminNoticiaController@edit')->name('admin.noticia.edit');
+
 Route::post('/admin/noticia', 'AdminNoticiaController@store')->name('admin.noticia.store');
 Route::post('/admin/noticia/{id}', 'AdminNoticiaController@update')->name('admin.noticia.update');
 

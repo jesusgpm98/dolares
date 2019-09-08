@@ -4,13 +4,13 @@
     <div class="row items-push">
       <div class="col-sm-7">
         <h1 class="page-heading">
-          Categorias <small>agregar</small>
+          Noticias <small>modificar</small>
         </h1>
       </div>
       <div class="col-sm-5 text-right hidden-xs">
         <ol class="breadcrumb push-10-t">
           <li>Admin</li>
-          <li><a class="link-effect" href="#">Agregar categoria</a></li>
+          <li><a class="link-effect" href="#">Modificar noticia</a></li>
         </ol>
       </div>
     </div>
@@ -27,20 +27,20 @@
       <button type="button" data-toggle="block-option" data-action="content_toggle"><i class="si si-arrow-up"></i></button>
     </li>
   </ul> --}}
-  <h3 class="block-title">Agregar</h3>
+  <h3 class="block-title">Modificar</h3>
 </div>
 <div class="block-content">
 
-  <form class="form-horizontal" action="{{ route('admin.categoria.store') }}" method="post">
+  <form class="form-horizontal" action="{{ route('admin.noticia.update', ['id' => $noticia->id]) }}" method="post">
     @csrf
     <div class="row">
 
       <div class="col-md-12">
         <div class="form-group">
           <div class="col-md-5">
-            <label for="nombreCategoria">Nombre</label>
-            <input class="form-control input-lg @error('nombreCategoria') is-invalid @enderror" type="text" id="nombreCategoria" name="nombreCategoria" value="{{ old('nombreCategoria') }}" placeholder="Enter category.." autofocus>
-              @error('nombreCategoria')
+            <label for="nombre">Nombre</label>
+            <input class="form-control input-lg @error('nombre') is-invalid @enderror" type="text" id="nombre" name="nombre" value="{{ $noticia->nombre }}" placeholder="Enter notice.." autofocus>
+              @error('nombre')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
@@ -54,8 +54,8 @@
               <div class="form-group">
                 <div class="col-md-12">
                   <label for="descripcion">Descripcion</label>
-                  <textarea class="form-control input-lg @error('descripcionCategoria') is-invalid @enderror" id="descripcion" name="descripcionCategoria" rows="6" placeholder="Enter a few descripcion..">{{ old('descripcionCategoria') }}</textarea>
-                    @error('descripcionCategoria')
+                  <textarea class="form-control input-lg @error('descripcion') is-invalid @enderror" id="descripcion" name="descripcion" rows="6" placeholder="Enter a few descripcion..">{{ $noticia->texto }}</textarea>
+                    @error('descripcion')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                       </span>
@@ -69,7 +69,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <div class="col-md-8">
-                <button class="btn btn-success" type="submit"><i class="fa fa-check push-5-r"></i> Agregar</button>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-edit push-5-r"></i> Modificar</button>
               </div>
             </div>
           </div>

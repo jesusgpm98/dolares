@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Noticias;
+use App\Noticia;
 
 class AdminNoticiaController extends Controller
 {
@@ -13,6 +13,8 @@ class AdminNoticiaController extends Controller
     {
       return view('admin.noticias');
     }
+
+    //obtener todos los registros de noticias para mostrarlos
     public function all()
     {
       $notacias = Notica::all();
@@ -20,16 +22,22 @@ class AdminNoticiaController extends Controller
       return $noticias;
     }
 
+    //retornar vista de agregar noticia
+    public function create(){
+      return view('admin.noticia.agregar');
+    }
+
+    //funcion para agregar una noticia
     public function store(Request $request)
     {
-      $request->validate([
+      $data = $request->validate([
         'nombre' => 'required|string',
         'descripcion' => 'required'
       ]);
 
       $noticia = Noticia::create([
-        'nombre' => $request->nombre,
-        'descripcion' => $request->descripcion
+        'nombre' => $data['nombre'],
+        'texto' => $data['descripcion']
       ]);
 
       return redirect()->route('admin.noticia.edit', ['id' => $noticia->id])->with('status', 'Se ha guardado correctamente');
@@ -43,14 +51,14 @@ class AdminNoticiaController extends Controller
 
     public function update(Request $request, $id)
     {
-      $request->validate([
+      $data = $request->validate([
         'nombre' => 'required|string',
         'descripcion' => 'required'
       ]);
 
     $noticia = Noticia::findOrFail($id);
-          $noticia->nombre = $request->nombre;
-          $noticia->descripcion = $request->descripcion;
+          $noticia->nombre = $data['nombre'];
+          $noticia->texto = $data['descripcion'];
           $noticia->save();
 
 
